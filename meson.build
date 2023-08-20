@@ -1,11 +1,7 @@
-testBench = 0 
+project('Fraglog','cpp')
 
-if testBench == 1 
-  project('Fraglog','cpp')
-endif
-
-src = files('Fraglog.hpp')
-src += files('Fraglog.cpp')
+testBench = 0
+src = files('Fraglog.cpp')
 #src += files('main.cpp') 
 
 lib = library('Froglog',src)
