@@ -1,6 +1,9 @@
-project('Fraglog','cpp')
-
 testBench = 0 
+
+if testBench == 1 
+  project('Fraglog','cpp')
+endif
+
 src = files('Fraglog.hpp')
 src += files('Fraglog.cpp')
 #src += files('main.cpp') 
