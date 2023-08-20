@@ -1,9 +1,34 @@
 #include "Fraglog.hpp" 
-#include <stdio.h>
+#include <algorithm>
+#include <cstring>
 
 
-int main()
+FragLog::FragLog()
 {
-   printf("Hello World");
-   return 0;
+   try
+   {
+      file.open(logFile,std::ios::app);
+      if(!file)
+      {
+         throw ErrorClass::DirectoryException; 
+      } 
+   }
+   catch (ErrorClass error)
+   {
+      file.open("./Error.log",std::ios::out);
+      switch (error) {
+         case (ErrorClass::DirectoryException):
+            file << logFile << " : directory does not exist" << std::endl;
+            break;
+         default:
+            file << "Some Exception Occured" << std::endl;
+      } 
+      file.close();
+   }
+}
+
+
+FragLog::~FragLog()
+{
+   file.close();
 }
