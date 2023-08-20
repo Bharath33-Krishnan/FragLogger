@@ -1,11 +1,14 @@
 project('Fraglog','cpp')
 
-testBench = 0
-src = files('Fraglog.cpp')
-#src += files('main.cpp') 
+lib_log = library('Fraglog','Fraglog.cpp')
 
-lib = library('Froglog',src)
-
-if testBench == 1 
-  executable('TestBench','main.cpp',link_with : lib)
-endif
+lib_log_dep = declare_dependency(link_with:lib_log)
+# testBench = 0
+# src = files('Fraglog.cpp')
+# #src += files('main.cpp') 
+#
+# lib = library('Froglog',src)
+#
+# if testBench == 1 
+#   executable('TestBench','main.cpp',link_with : lib)
+# endif
