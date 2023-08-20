@@ -21,7 +21,7 @@ FragLog::FragLog()
             file << logFile << " : directory does not exist" << std::endl;
             break;
          default:
-            file << "Some Exception Occured" << std::endl;
+            file << "Exception Occured" << std::endl;
       } 
       file.close();
    }
