@@ -1,4 +1,8 @@
-#include "Fraglog.hpp" 
+#include "Fraglog.hpp"
+
+
+#define LOG_FILE "./logs/EngineLog.log"
+
 
 std::tm* FragLog::getCurrentTime()
 {
@@ -11,7 +15,7 @@ FragLog::FragLog()
 {
     try
     {
-        file.open(logFile,std::ios::app);
+        file.open(LOG_FILE,std::ios::app);
         if(!file)
         {
             throw ErrorClass::DirectoryException; 
@@ -22,7 +26,7 @@ FragLog::FragLog()
         file.open("./Error.log",std::ios::out);
         switch (error) {
             case (ErrorClass::DirectoryException):
-                file << logFile << " : directory does not exist" << std::endl;
+                file << LOG_FILE << " : directory does not exist" << std::endl;
                 break;
             default:
                 file << "Exception Occured" << std::endl;
